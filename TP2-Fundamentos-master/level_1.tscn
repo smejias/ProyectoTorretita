@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5uelfh2iy4w8"]
+
+[ext_resource type="PackedScene" uid="uid://dx6h35cocgijk" path="res://player.tscn" id="1_6v4x2"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_ah0g7"]
+[ext_resource type="PackedScene" uid="uid://bbv0d3bpm2gtc" path="res://plataforma.tscn" id="2_706ef"]
+[ext_resource type="Texture2D" uid="uid://clckj6w2p7kwo" path="res://icon.svg" id="3_hn7eh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw13b"]
+size = Vector2(128, 128)
+
+[node name="Level_1" type="Node"]
+script = ExtResource("1_ah0g7")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_6v4x2")]
+
+[node name="Plataforma" parent="." instance=ExtResource("2_706ef")]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(320, 364)
+
+[node name="Icon" type="Sprite2D" parent="Area2D"]
+modulate = Color(1, 0, 0, 1)
+rotation = 3.14159
+texture = ExtResource("3_hn7eh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_tw13b")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
