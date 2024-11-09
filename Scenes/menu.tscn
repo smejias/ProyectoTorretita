@@ -62,6 +62,10 @@ theme = ExtResource("4_bq4db")
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
+[node name="Start" type="AudioStreamPlayer" parent="CanvasLayer/VBoxContainer/Play"]
+stream = ExtResource("5_jxom5")
+bus = &"Sounds"
+
 [node name="Credits" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4

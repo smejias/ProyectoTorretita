@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Scripts/timer.gd" id="19_m1s34"]
 [ext_resource type="Texture2D" uid="uid://cdpoq7veongl7" path="res://Assets/4 Animated objects/Money.png" id="20_l27dx"]
 [ext_resource type="Script" path="res://Scripts/collectible.gd" id="20_nalbi"]
+[ext_resource type="AudioStream" uid="uid://s1hoab1gu76g" path="res://Audio/SFX/Pickup Coin3(1).wav" id="23_5ynb8"]
 [ext_resource type="Texture2D" uid="uid://dyvc31q0grki2" path="res://atlas.png" id="23_46d7i"]
 [ext_resource type="Script" path="res://Scripts/damage.gd" id="23_xqb5c"]
 [ext_resource type="Script" path="res://Scripts/win.gd" id="24_6luoj"]
