@@ -25,4 +25,4 @@ func pause_menu_on():
 func pause_menu_off():
 	get_tree().paused = false
 	$"Menu Pausa".hide()
-	$BotonPausa.show()
+	$BotonPausa.show()	
