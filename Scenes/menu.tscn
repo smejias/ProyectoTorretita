@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://tt8hb3y7kpte"]
+[gd_scene load_steps=6 format=3 uid="uid://tt8hb3y7kpte"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_grxfm"]
 [ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="2_nmmun"]
 [ext_resource type="FontFile" uid="uid://thyyysgxsy6h" path="res://Assets/Fonts/ThaleahFat.ttf" id="3_aiy8u"]
 [ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="4_bq4db"]
+[ext_resource type="AudioStream" uid="uid://b2n5n06slou6i" path="res://Audio/SFX/boost.wav" id="5_jxom5"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_grxfm")
@@ -57,6 +58,10 @@ size_flags_vertical = 4
 theme = ExtResource("4_bq4db")
 text = "Start"
 metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="AudioStreamPlayer" parent="CanvasLayer/VBoxContainer/Play"]
+stream = ExtResource("5_jxom5")
+bus = &"Sounds"
 
 [node name="Credits" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
