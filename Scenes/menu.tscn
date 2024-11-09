@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://tt8hb3y7kpte"]
+[gd_scene load_steps=9 format=3 uid="uid://tt8hb3y7kpte"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_grxfm"]
 [ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="2_nmmun"]
 [ext_resource type="FontFile" uid="uid://thyyysgxsy6h" path="res://Assets/Fonts/ThaleahFat.ttf" id="3_aiy8u"]
 [ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="4_bq4db"]
+[ext_resource type="AudioStream" uid="uid://bt6qr8beyp3uh" path="res://Audio/SFX/select sound.wav" id="5_ngs27"]
+[ext_resource type="AudioStream" uid="uid://c0b1aw7f30ykh" path="res://Assets/Music/bg-music.mp3" id="5_wjs5d"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="6_141ym"]
+[ext_resource type="AudioStream" uid="uid://dmydl8b06d3an" path="res://Audio/SFX/game-start-6104.mp3" id="8_sxg12"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_grxfm")
@@ -65,6 +69,23 @@ size_flags_vertical = 4
 theme = ExtResource("4_bq4db")
 text = "Credits"
 metadata/_edit_use_anchors_ = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_wjs5d")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("6_141ym")
+
+[node name="Sounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ngs27")
+bus = &"Sounds"
+
+[node name="GameStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sxg12")
+bus = &"Sounds"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Play" to="." method="play"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Credits" to="." method="credits"]

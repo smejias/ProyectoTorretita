@@ -1,27 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://qw8gah0b0mqa"]
+[gd_scene load_steps=5 format=3 uid="uid://qw8gah0b0mqa"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_0uu5x"]
-[ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="1_14du5"]
+[ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="1_gec18"]
+[ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="2_a8x3y"]
+[ext_resource type="FontFile" uid="uid://thyyysgxsy6h" path="res://Assets/Fonts/ThaleahFat.ttf" id="4_5vl3s"]
 
 [node name="Game_Over" type="Node"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_0uu5x")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("1_gec18")
 
-[node name="MainMenuButton" type="Button" parent="."]
+[node name="MainMenuButton" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.277778
-anchor_top = 0.617284
-anchor_right = 0.722222
-anchor_bottom = 0.787037
-theme = ExtResource("1_14du5")
+anchor_left = 0.281
+anchor_top = 0.747
+anchor_right = 0.719
+anchor_bottom = 0.861
+offset_left = 64.144
+offset_top = 2.97198
+offset_right = -64.144
+offset_bottom = -2.96402
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_a8x3y")
 text = "Volver al Menu"
-script = ExtResource("1_0uu5x")
-metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="main_menu"]
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5vl3s")
+theme_override_font_sizes/font_size = 80
+text = "PERDISTE"
+
+[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="CanvasLayer" method="main_menu"]

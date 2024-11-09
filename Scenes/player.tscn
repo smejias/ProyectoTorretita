@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6k258me1kd5c" path="res://Assets/Character/char.png" id="2_qcmmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d7hk"]
-size = Vector2(31.2, 51.2)
+size = Vector2(22.4, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4cw4"]
 atlas = ExtResource("2_qcmmp")
@@ -109,7 +109,7 @@ scale = Vector2(5, 5)
 script = ExtResource("1_43wap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.299999, -1.4)
+position = Vector2(-0.799999, -0.499999)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_6d7hk")
 
@@ -121,3 +121,5 @@ sprite_frames = SubResource("SpriteFrames_01ly2")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.291811
+
+[node name="Saltar" type="AudioStreamPlayer" parent="."]

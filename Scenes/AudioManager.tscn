@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv5ld7ic25v26"]
+
+[ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="1_7jpdy"]
+[ext_resource type="AudioStream" uid="uid://bt6qr8beyp3uh" path="res://Audio/SFX/select sound.wav" id="2_xv70u"]
+[ext_resource type="AudioStream" uid="uid://d1mrnnkof5xgp" path="res://Audio/SFX/game-over-arcade-6435.mp3" id="3_55y1p"]
+[ext_resource type="AudioStream" uid="uid://s1hoab1gu76g" path="res://Audio/SFX/Pickup Coin3(1).wav" id="3_dhtax"]
+[ext_resource type="AudioStream" uid="uid://c0b1aw7f30ykh" path="res://Assets/Music/bg-music.mp3" id="3_kki01"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="4_h654m"]
+[ext_resource type="AudioStream" uid="uid://ctqe352by2hsm" path="res://Audio/SFX/game-over-38511.mp3" id="4_uggl4"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_7jpdy")
+
+[node name="UISFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xv70u")
+bus = &"Sounds"
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="LooseLifeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_55y1p")
+bus = &"Sounds"
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uggl4")
+bus = &"Sounds"
+
+[node name="StartGameSFX" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="Collectible" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dhtax")
+bus = &"Sounds"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_kki01")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("4_h654m")

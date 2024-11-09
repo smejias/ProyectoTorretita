@@ -1,74 +1,86 @@
-[gd_scene load_steps=8 format=3 uid="uid://qnwnsa5mp066"]
+[gd_scene load_steps=9 format=3 uid="uid://m5nhpdku8reg"]
 
-[ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="1_41q6s"]
-[ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="1_th1pe"]
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="2_x46mx"]
-[ext_resource type="Texture2D" uid="uid://ba6731tgmmhhd" path="res://Assets/01_Flat_Theme/Sprites/UI_Flat_Frame03a.png" id="4_jmr8f"]
-[ext_resource type="FontFile" uid="uid://thyyysgxsy6h" path="res://Assets/Fonts/ThaleahFat.ttf" id="5_5btm8"]
-[ext_resource type="Script" path="res://Scripts/score.gd" id="6_7sq7k"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_tdk8c"]
+[ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="2_f153h"]
+[ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="3_e0rnm"]
+[ext_resource type="Texture2D" uid="uid://ba6731tgmmhhd" path="res://Assets/01_Flat_Theme/Sprites/UI_Flat_Frame03a.png" id="4_4kmxy"]
+[ext_resource type="FontFile" uid="uid://thyyysgxsy6h" path="res://Assets/Fonts/ThaleahFat.ttf" id="5_esv88"]
+[ext_resource type="Script" path="res://Scripts/score.gd" id="6_bgyff"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ch5j"]
-texture = ExtResource("4_jmr8f")
-texture_margin_left = 4.0
+[sub_resource type="Theme" id="Theme_54lhc"]
+Panel/styles/panel = null
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hjfb"]
+texture = ExtResource("4_4kmxy")
+texture_margin_left = 3.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(0, 0, 96, 64)
+region_rect = Rect2(1, 0, 95, 64)
 
 [node name="Game_Over" type="Node"]
-metadata/_edit_vertical_guides_ = [128.0]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_tdk8c")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_41q6s")
+texture = ExtResource("2_f153h")
 
-[node name="MainMenuButton" type="Button" parent="."]
+[node name="MainMenuButton" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.277778
-anchor_top = 0.617284
-anchor_right = 0.722222
-anchor_bottom = 0.787037
-theme = ExtResource("1_th1pe")
+anchor_left = 0.392
+anchor_top = 0.452
+anchor_right = 0.608
+anchor_bottom = 0.548
+offset_left = 0.207993
+offset_top = 98.552
+offset_right = -0.208008
+offset_bottom = 98.448
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_e0rnm")
 text = "Volver al Menu"
-script = ExtResource("2_x46mx")
-metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.219
-anchor_top = 0.336
-anchor_right = 0.79
-anchor_bottom = 0.46
-offset_left = 0.855995
-offset_top = 0.135994
-offset_right = 0.959991
-offset_bottom = -0.0400085
+anchor_left = 0.224
+anchor_top = 0.438
+anchor_right = 0.776
+anchor_bottom = 0.546
+offset_left = -0.0240021
+offset_top = 0.0879974
+offset_right = 0.0239868
+offset_bottom = 5.09599
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_5ch5j")
+theme = SubResource("Theme_54lhc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1hjfb")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.007
-anchor_top = -1.6
-anchor_right = 0.913
-anchor_bottom = -0.684
-offset_left = 17.697
-offset_top = 66.0
-offset_right = 5531.46
-offset_bottom = 762.36
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -21.0
+offset_right = 135.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.05, 0.05)
-theme_override_fonts/font = ExtResource("5_5btm8")
-theme_override_font_sizes/font_size = 800
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_esv88")
+theme_override_font_sizes/font_size = 45
+text = "puntos: 64563"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("6_7sq7k")
+script = ExtResource("6_bgyff")
 
-[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="main_menu"]
+[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="CanvasLayer" method="main_menu"]

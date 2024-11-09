@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdhnr1ox7sj3f"]
+[gd_scene load_steps=8 format=3 uid="uid://bdhnr1ox7sj3f"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_h5w6l"]
 [ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="2_g3vtp"]
 [ext_resource type="FontFile" uid="uid://vsdif021xagc" path="res://Assets/Fonts/Bungee-Regular.ttf" id="4_gwwwn"]
 [ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="4_qwlq8"]
+[ext_resource type="AudioStream" uid="uid://bt6qr8beyp3uh" path="res://Audio/SFX/select sound.wav" id="5_hhcsi"]
+[ext_resource type="AudioStream" uid="uid://c0b1aw7f30ykh" path="res://Assets/Music/bg-music.mp3" id="5_r3xxr"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="6_flmtg"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_h5w6l")
@@ -60,6 +63,19 @@ text = "AGRADECIMIENTOS"
 layout_mode = 2
 theme = ExtResource("4_qwlq8")
 text = "VOLVER"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_r3xxr")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("6_flmtg")
+
+[node name="Sounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hhcsi")
+bus = &"Sounds"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Agradecimientos" to="." method="mentions"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Volver" to="." method="main_menu"]
