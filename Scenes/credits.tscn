@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdhnr1ox7sj3f"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_h5w6l"]
+[ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="2_g3vtp"]
+[ext_resource type="FontFile" uid="uid://vsdif021xagc" path="res://Assets/Fonts/Bungee-Regular.ttf" id="4_gwwwn"]
+[ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="4_qwlq8"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_h5w6l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g3vtp")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.221
+anchor_right = 1.0
+anchor_bottom = 0.779
+offset_top = -37.604
+offset_bottom = -37.396
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_gwwwn")
+theme_override_font_sizes/font_size = 28
+text = "Ramiro Lewin
+Lucas Beruti
+Tomás Guerra
+Santiago J. Mejías"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = 57.0
+offset_right = 129.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Agradecimientos" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_qwlq8")
+text = "AGRADECIMIENTOS"
+
+[node name="Volver" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_qwlq8")
+text = "VOLVER"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Agradecimientos" to="." method="mentions"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Volver" to="." method="main_menu"]

@@ -1,26 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://tt8hb3y7kpte"]
+[gd_scene load_steps=5 format=3 uid="uid://tt8hb3y7kpte"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_grxfm"]
+[ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="2_nmmun"]
+[ext_resource type="FontFile" uid="uid://thyyysgxsy6h" path="res://Assets/Fonts/ThaleahFat.ttf" id="3_aiy8u"]
+[ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="4_bq4db"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_grxfm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("2_nmmun")
 
-[node name="Button" type="Button" parent="."]
+[node name="Titulo" type="Label" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -108.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_aiy8u")
+theme_override_font_sizes/font_size = 64
+text = "PROYECTO 
+TORRETITA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.277778
-anchor_top = 0.592593
-anchor_right = 0.666667
-anchor_bottom = 0.802469
+anchor_left = 0.378
+anchor_top = 0.759
+anchor_right = 0.622
+anchor_bottom = 1.0
+offset_left = 0.271988
+offset_top = -32.916
+offset_right = -0.272034
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_bq4db")
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Button" to="." method="play"]
+[node name="Credits" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_bq4db")
+text = "Credits"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Play" to="." method="play"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Credits" to="." method="credits"]
