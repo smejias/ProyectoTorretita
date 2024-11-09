@@ -1,5 +1,7 @@
 extends Node
 
+@onready var game_over: AudioStreamPlayer = $GameOver
+
 func _ready() -> void:
 	GlobalVariables.vida = 3
 	GlobalVariables.score = 0

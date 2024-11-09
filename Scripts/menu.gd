@@ -1,5 +1,7 @@
 extends Node
 
+@onready var start: AudioStreamPlayer = $CanvasLayer/VBoxContainer/Play/Start
+
 func restart():
 	get_tree().reload_scene()
 	pass
@@ -9,8 +11,11 @@ func main_menu():
 	pass
 
 func play():
+	start.play()
+	await start.finished
 	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
-
+	
+	
 func credits():
 	get_tree().change_scene_to_file("res://Scenes/credits.tscn")
 

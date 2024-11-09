@@ -121,3 +121,5 @@ sprite_frames = SubResource("SpriteFrames_01ly2")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.291811
+
+[node name="Saltar" type="AudioStreamPlayer" parent="."]
