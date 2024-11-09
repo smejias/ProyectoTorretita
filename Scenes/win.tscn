@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://qnwnsa5mp066"]
+
+[ext_resource type="Texture2D" uid="uid://dabhdbl24f5at" path="res://Assets/2 Background/Background.png" id="1_41q6s"]
+[ext_resource type="Theme" uid="uid://dgb55qisom8k3" path="res://Assets/ui.tres" id="1_th1pe"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="2_x46mx"]
+[ext_resource type="Texture2D" uid="uid://ba6731tgmmhhd" path="res://Assets/01_Flat_Theme/Sprites/UI_Flat_Frame03a.png" id="4_jmr8f"]
+[ext_resource type="FontFile" uid="uid://thyyysgxsy6h" path="res://Assets/Fonts/ThaleahFat.ttf" id="5_5btm8"]
+[ext_resource type="Script" path="res://Scripts/score.gd" id="6_7sq7k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ch5j"]
+texture = ExtResource("4_jmr8f")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 96, 64)
+
+[node name="Game_Over" type="Node"]
+metadata/_edit_vertical_guides_ = [128.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_41q6s")
+
+[node name="MainMenuButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.277778
+anchor_top = 0.617284
+anchor_right = 0.722222
+anchor_bottom = 0.787037
+theme = ExtResource("1_th1pe")
+text = "Volver al Menu"
+script = ExtResource("2_x46mx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.219
+anchor_top = 0.336
+anchor_right = 0.79
+anchor_bottom = 0.46
+offset_left = 0.855995
+offset_top = 0.135994
+offset_right = 0.959991
+offset_bottom = -0.0400085
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ch5j")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = -1.6
+anchor_right = 0.913
+anchor_bottom = -0.684
+offset_left = 17.697
+offset_top = 66.0
+offset_right = 5531.46
+offset_bottom = 762.36
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = ExtResource("5_5btm8")
+theme_override_font_sizes/font_size = 800
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_7sq7k")
+
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="main_menu"]
